@@ -34,25 +34,15 @@ A simple clonk server
 
 * `version` represents the client protocol version and must be `1.0.0`
 * JSON Body must contain an `id` key. This is used to distinguish clients.
-* JSON Body MAY contain any/all keys 'latitude', 'longitude', 'altitude'
-  * lat and lon are in degrees
-  * alt is meters. Altitude can be provided by both or neither events. If it's provided by only one, it will not report a clonk.
+* JSON Body MAY contain any/all keys `latitude`, `longitude`, `altitude`
+  * latitude and longitude are in degrees
+  * altitude is meters. Altitude can be provided by both or neither events. If it's provided by only one, it will not report a clonk.
 * JSON Body may contain other keys. They will be sent to clonk-mates.
 
-```json
-{
-    "version": "1.0.0",
-    "id": "your name",
-    "latitude": 40.0,
-    "longitude": -40.0,
-    "altitude": 10,
-    "some other data": "banana"
-}
-```
 
-1. After the window, you'll get back a list *(JSON)* of the client clonks for clients who also clonked (with you) within the window.
+1. After the window, you'll get back a list *(JSON)* of the client clonks for clients *(clonk-mates)* who also clonked (with you) within the window.
 
-`version` represents server version.
+`version` in response represents server version. Currently `1.0.0`.
 
 ```json
 {
