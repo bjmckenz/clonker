@@ -5,6 +5,7 @@ import sys
 
 # All times in seconds
 
+CURRENT_VERSION = "1.0.0"
 DEFAULT_CLOSE_ENOUGH_METERS = 1.0
 DEFAULT_TIME_MATCHUP_WINDOW = 0.5
 DEFAULT_IDENTITY_KEY = 'id'
@@ -49,6 +50,12 @@ if __name__ == '__main__':
 def clonk():
     client = request.json
     now = time.time()
+
+    if 'version' not in client or client['version'] != CURRENT_VERSION:
+        return jsonify({
+            "error": "incorrect or missing version",
+            "required": CURRENT_VERSION
+            }), 400
 
     if DEFAULT_IDENTITY_KEY not in client:
         return jsonify({
@@ -116,7 +123,7 @@ def distance_between(clonk1, clonk2):
     # incorporate altitude (farily valid for << 1km) if it's available
     if 'altitude' in clonk1:
         dist = hypotenuse(sea_level_distance,
-                          clonk1['altitude'] - clonk2['altitude'])
+                        clonk1['altitude'] - clonk2['altitude'])
 
     return dist
 
