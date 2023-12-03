@@ -40,7 +40,7 @@ A simple clonk server
 * JSON Body may contain other keys. They will be sent to clonk-mates.
 
 
-1. After the window, you'll get back a list *(JSON)* of the client clonks for clients *(clonk-mates)* who also clonked (with you) within the window.
+2. After the window, you'll get back a list *(JSON)* of the client clonks for clients *(clonk-mates)* who also clonked (with you) within the window.
 
 `version` in response represents server version. Currently `1.0.0`.
 
@@ -68,7 +68,7 @@ A simple clonk server
 }
 ```
 
-1. You will not be in the list.
+3. You will not be in the list.
 
 ## What's a clonk?
 
@@ -76,15 +76,16 @@ A simple clonk server
 
 ## Defaults
 
-**Clonk window:** 0.5 seconds
+### **Clonk window:** 0.5 seconds
 
 Why not make this 0.0? Potentially different latencies in opening a connnection to the server. Times are recorded by the server, not reported by the client so skew is not an issue
 
-**Distance between devices:** 1.0 meter
+### **Distance between devices:** 1.0 meter
 
 Why not make this 0.0? Inaccuracies in phone position. Locations are fuzzy.
 
-**Settling window:** 20 ms
+### **Settling window:** 20 ms
+
 *(connection and network latency, and a bit of server latency)*
 
 # License
